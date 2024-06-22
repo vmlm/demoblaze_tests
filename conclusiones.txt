@@ -1,6 +1,6 @@
 The exercise doesn't contemplate designing test cases or testing for correctness, only automating the given steps. As such, any test findings fall outside the scope of the exercise.
 
-Regarding the exercise itself, I've chosen to implement the given test flow as a BDD feature script in behave, with python for step implementation. This approach has two primary advantanges:
+Regarding the exercise itself, I've chosen to implement the given test flow as a BDD feature script in behave, with python for step implementation. This approach has two primary advantages:
     1) Communicating the objective of the test in natural language, which is valuable to non-technical stakeholders;
     2) Providing a logical scaffold for test programmers (myself, other testers or developers in test) to quickly check unimplemented tests and add test logic
 
