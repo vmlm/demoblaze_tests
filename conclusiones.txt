@@ -1,20 +1,14 @@
-The exercise doesn't contemplate designing test cases or testing for correctness, only automating the given steps. As such, any test findings fall outside the scope of the exercise.
+# Conclusiones
 
-Regarding the exercise itself, I've chosen to implement the given test flow as a BDD feature script in behave, with python for step implementation. This approach has two primary advantages:
-    1) Communicating the objective of the test in natural language, which is valuable to non-technical stakeholders;
-    2) Providing a logical scaffold for test programmers (myself, other testers or developers in test) to quickly check unimplemented tests and add test logic
+## Ejercicio de automatización E2E
+La automatización requerida fue directa y fácil de escribir; sin embargo, como está especificada no logra capturar una serie de problemas que existen en el sitio web. Por ejemplo, no prueba:
+* Eliminar productos del carrito de compras
+* Agregar múltiples instancias del mismo producto al carrito de compras
+* Registrarse y iniciar sesión
 
-The implementation is straightforward: I've kept the browser driver and logger as context variables to ensure that these remain available for the life of this and any other tests. While the test is only implemented to run with Chrome, and only for a single test scenario (add two random products), it can easily be extended to include different browsers and additional scenarios (attempt purchase with no products, several copies of the same product, etc.)
-
-The project is structured as follows
-demoblaze_tests
-|-- features: contains gherkin feature descriptions
-|       |-- steps: contains python feature step implementations
-|-- scripts: contains auxiliary scripts to handle browser and logging setup logic.
-
-After the tests are run, the following additional directories are created:
-demoblaze_tests
-|-- results: contains individual reports for each test run
-|       |-- {test timestamp}: a single test run report
-|       |       |-- screenshots: screenshots generated during the test
-|       |       |-- actions.log: A log of all action taken on the webpage.
+## Ejercicio de automatización API
+Este ejercicio también fue bastante directo, preo presenta el mismo problema.
+La API proporcionada presenta una serie de defectos, solo algunos de los cuales son capturados por las pruebas especificadas. Por ejemplo:
+* Se devuelven códigos de respuesta incorrectos o subóptimos para varias solicitudes (ver las pruebas).
+* Se devuelve JSON mal formado para las solicitudes de inicio de sesión exitosas, lo que podría representar un riesgo de seguridad.
+* Las credenciales se envían en texto claro.

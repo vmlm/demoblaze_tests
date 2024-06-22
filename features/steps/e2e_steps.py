@@ -13,12 +13,7 @@ def setup_browser(context, browser):
     context.driver = browser_manager.get_driver(browser)
 
 
-@when('I navigate to "{url}"')
-def first_navigate_home(context, url):
-    context.home_url = url
-    navigate_home(context)
-
-
+@when('I navigate to the demoblaze home page')
 def navigate_home(context):
     context.driver.get(context.home_url)
 
@@ -126,23 +121,24 @@ def capture_screenshot(context, step_name):
     context.driver.save_screenshot(screenshot_path)
 
 
-if __name__ == "__main__":
-    class ContextDummy(object):
-        driver = None
-        home_url = ""
-        table = [{
-            'Name': 'John Doe',
-            'Country': 'USA',
-            'City': 'New York',
-            'Card': '1234 5678',
-            'Month': '12',
-            'Year': '2024'
-        }, ]
-
-
-    dummy_context = ContextDummy()
-    setup_browser(dummy_context, "Chrome")
-    first_navigate_home(dummy_context, "https://www.demoblaze.com")
-    add_2_random_products(dummy_context)
-    navigate_to_cart(dummy_context)
-    place_order(dummy_context)
+# if __name__ == "__main__":
+#     class ContextDummy(object):
+#         driver = None
+#         home_url = ""
+#         table = [{
+#             'Name': 'John Doe',
+#             'Country': 'USA',
+#             'City': 'New York',
+#             'Card': '1234 5678',
+#             'Month': '12',
+#             'Year': '2024'
+#         }, ]
+#         screenshots_dir = ''
+#
+#
+#     dummy_context = ContextDummy()
+#     setup_browser(dummy_context, "Chrome")
+#     navigate_home(dummy_context, "https://www.demoblaze.com")
+#     add_2_random_products(dummy_context)
+#     navigate_to_cart(dummy_context)
+#     place_order(dummy_context)

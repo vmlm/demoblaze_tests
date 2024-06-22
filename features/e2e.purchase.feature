@@ -2,7 +2,7 @@ Feature: Purchase products
 
   Scenario Outline: Purchase two random products
     Given I am using <browser>
-    When I navigate to "https://www.demoblaze.com/"
+    When I navigate to the demoblaze home page
     And I add two random products to the cart
     And I visualize the cart
     And I the place order with the following data
