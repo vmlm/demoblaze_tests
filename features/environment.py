@@ -7,8 +7,8 @@ from scripts import logger_manager
 def before_all(context):
     # Setup directories for results and screenshots
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    results_dir = f"./results/{timestamp}"
-    context.screenshots_dir = f"{results_dir}/screenshots"
+    context.results_dir = f"./results/{timestamp}"
+    context.screenshots_dir = f"{context.results_dir}/screenshots"
     os.makedirs(context.screenshots_dir, exist_ok=True)
     context.logger = logger_manager.configure_logger(context)
 
